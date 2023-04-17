@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Superstore Sales Prediction</title>
+</head>
+<body>
+	<h1>Superstore Sales Prediction</h1>
+	<form action="{{ url_for('predict') }}" method="POST">
+		<label for="profit">Profit:</label>
+		<input type="number" id="profit" name="profit" required><br><br>
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" required><br><br>
+		<label for="category">Category:</label>
+		<select id="category" name="category" required>
+			<option value="Category_Furniture">Furniture</option>
+			<option value="Category_Office Supplies">Office Supplies</option>
+			<option value="Category_Technology">Technology</option>
+		</select><br><br>
+		<input type="submit" value="Predict">
+	</form>
+	{% if prediction_text %}
+		<p>{{ prediction_text }}</p>
+	{% endif %}
+</body>
+</html>
